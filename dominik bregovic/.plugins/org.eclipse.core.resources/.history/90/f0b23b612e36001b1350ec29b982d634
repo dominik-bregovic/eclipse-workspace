@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		int input=0;
+		Scanner scanner = new Scanner(System.in);
+		input = scanner.nextInt();
+		Cat cat1 = new Cat();
+		cat1.setColor("black");
+		cat1.setHeight(input);
+		cat1.setHeight(0);
+		System.out.println(cat1.height);
+		
+		
+		
+	}
+
+}

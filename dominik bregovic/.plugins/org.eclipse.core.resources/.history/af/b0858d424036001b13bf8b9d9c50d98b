@@ -1,0 +1,14 @@
+
+public class Point {
+	String color;
+	int height;
+	int weigth;
+	
+	public void setColor (String newColor) {
+		this.color = newColor;
+	}
+	public void setHeight(int newHeight) {
+		this.height = newHeight;
+	}
+	
+}

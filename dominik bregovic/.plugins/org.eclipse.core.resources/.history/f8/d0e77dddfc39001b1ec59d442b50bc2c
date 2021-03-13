@@ -1,0 +1,23 @@
+package ClassesAndObjects;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//How fast is your car driving.
+//		Car audi = new Car();
+//		audi.drive(110);
+		
+		Car bmw = new Car();
+		System.out.println(bmw.driving);
+		
+		Paint paintShop = new Paint();
+		System.out.println(bmw.getColor());
+		
+		paintShop.paintingCar("yellow",bmw);
+		System.out.println(bmw.getColor());
+		
+		
+		
+	}
+
+}

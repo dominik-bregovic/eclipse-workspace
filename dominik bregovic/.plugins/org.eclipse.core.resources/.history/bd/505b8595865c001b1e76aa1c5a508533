@@ -1,0 +1,96 @@
+import java.util.Scanner;
+
+public class Player {
+	
+	private Disc disc;
+	private Scanner scanner;
+	private static int countPlayer;
+	private int column;
+	private String wrongTurn;
+	private String name;
+	
+	public Player(Scanner scanner) {
+		this.scanner = scanner;
+		countPlayer++;
+	}
+	
+	public void readName() {
+		System.out.print("Name of Player "+ countPlayer +":" );
+		this.name = scanner.nextLine();
+	}
+	
+	public void chooseSymbol() {
+		this.disc = new Disc(this.scanner);
+		this.disc.readSymbol();
+//		this.disc.verify();
+	}
+	
+	
+	
+	public int chooseColumn(Scanner scanner) {
+		int verifyColumn;
+		
+		if (!scanner.hasNextInt()) {
+			verifyColumn = 8;
+		}else {
+			verifyColumn = scanner.nextInt();
+		}
+		checkIfValidTurn(verifyColumn);
+		return verifyColumn;
+	}
+	
+	public void checkIfValidTurn(int verifyColumn) {
+			
+			switch(verifyColumn){
+			case 1:
+				this.column = verifyColumn;
+				break;
+			case 2:
+				this.column = verifyColumn;
+				break;
+			case 3:
+				this.column = verifyColumn;
+				break;
+			case 4:
+				this.column = verifyColumn;
+				break;
+			case 5:
+				this.column = verifyColumn;
+				break;
+			case 6:
+				this.column = verifyColumn;
+				break;
+			case 7:
+				this.column = verifyColumn;
+				break;
+			default: 	
+				this.wrongTurn = "Wrong Turn!";
+		}
+	}
+	
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public int getColumn() {
+		return this.column;
+	}
+	
+	public String getWrongTurn() {
+		return this.wrongTurn;
+	}
+	
+	public Disc getPlayerDisc() {
+		return this.disc;
+	}
+	public void ifWrongTurn() {
+		this.wrongTurn = null;
+	}
+	
+	public void setWrongTurnWrong() {
+		this.wrongTurn = "Wrong Turn";
+	}
+	
+		
+}

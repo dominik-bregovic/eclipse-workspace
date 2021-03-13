@@ -1,0 +1,6 @@
+1611663742470	Rename field 'countPlayer'
+1611664232532	Rename method 'printIfInvalidTurn'
+1611664343481	Rename method 'setWrongTurn'
+1611667308015	Delete element
+1611683288077	Rename method 'finalState'
+1611683302017	Rename method 'printfinalState'

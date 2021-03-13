@@ -1,0 +1,8 @@
+
+public class Cat {
+	String color;
+	int height;
+	int weigth;
+	
+	
+}

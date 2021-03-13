@@ -1,0 +1,10 @@
+World
+Car
+Earth
+Coffee
+Fridge
+Knife
+Orange
+Beer
+Pineapple
+Chair

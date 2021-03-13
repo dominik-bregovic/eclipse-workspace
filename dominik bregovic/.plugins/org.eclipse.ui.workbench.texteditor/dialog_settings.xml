@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="try"/>
+		<list key="findhistory">
+			<item value="try"/>
+			<item value="Wrong"/>
+			<item value="wrong"/>
+			<item value="game."/>
+			<item value="checkmax"/>
+			<item value="iswrong"/>
+			<item value="here"/>
+			<item value="getWrongTurn"/>
+			<item value="iel"/>
+			<item value="d"/>
+			<item value="flag"/>
+			<item value="high"/>
+			<item value="low"/>
+			<item value="n2"/>
+			<item value="n1"/>
+		</list>
+		<list key="replacehistory">
+			<item value="numb1"/>
+			<item value="even"/>
+			<item value="maximum"/>
+			<item value="minimum"/>
+			<item value="f"/>
+			<item value="d"/>
+			<item value="b"/>
+			<item value="a"/>
+			<item value="isWrong1"/>
+			<item value="reciprocalOfMean"/>
+			<item value="mean"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1146"/>
+		<item key="DIALOG_Y_ORIGIN" value="448"/>
+		<item key="DIALOG_WIDTH" value="336"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="652"/>
+		<item key="DIALOG_Y_ORIGIN" value="362"/>
+	</section>
+</section>

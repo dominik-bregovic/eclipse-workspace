@@ -1,0 +1,156 @@
+import java.util.Scanner;
+
+public class Game {
+	private Player player1;
+	private Player player2;
+	private Box box;
+	private int turn = 1;
+	private int wrongColumn;
+	
+	public Game() {
+		FileHandler file = new FileHandler();
+		Scanner scanner = new Scanner(System.in);
+		initializeGame(scanner, file);
+		playGame(scanner);
+		endGame(file);
+		scanner.close();
+	}
+	
+//level 1-------------------------------------
+	public void initializeGame(Scanner scanner, FileHandler file) {
+		createPlayers(scanner);
+		createBox(); 
+		createFile(file);
+	}
+	
+	public void playGame(Scanner scanner) {
+	
+		while (this.box.getValidTurn()) {
+			
+				if (this.box.getIsTileLeft() == false) {
+					player1.isWrongTurn();
+					printFieldState();
+					player2.isWrongTurn();
+					printFieldState();
+					this.box.setIsTileLeft();
+					
+				}else {
+					playerTurn(scanner);
+					printFieldState();
+					this.box.checkDiagonalIfWinner(this.player1, this.player2);
+					this.box.checkMaxTurn(this.turn);
+				}
+				
+		}
+	}
+	
+	public void endGame(FileHandler file) {
+//		saveResult(file);
+//		print result state
+	}
+	//---------------------------------------------
+	
+	// Level 2 !!!!------------------
+	
+	public void createPlayers(Scanner scanner) {
+			this.player1 = new Player(scanner);
+			this.player1.readName();
+			this.player1.chooseSymbol();
+			
+			this.player2 = new Player(scanner);
+			this.player2.readName();
+			this.player2.chooseSymbol();
+	}
+	
+	public void createBox() {
+		this.box = new Box();
+	}
+	
+	public void createFile(FileHandler file) {
+		file.createFile();
+	}
+	
+	public void printIfInvalidTurn() {
+		
+		if (player1.getWrongTurn() != null) {
+			System.out.println(player1.getWrongTurn());
+			player1.setWrongTurn();
+		}else if (player2.getWrongTurn() != null){
+			System.out.println(player2.getWrongTurn());
+			player2.setWrongTurn();
+		}
+	}
+	
+	public void printFieldState() {
+		printIfInvalidTurn();
+		System.out.println("\n 1 2 3 4 5 6 7");
+		
+		for (int i = 0; i < this.box.getTile().length; i++) {
+			for (int j = 0; j < this.box.getTile()[i].length; j++) {
+				System.out.print("|");
+				
+				if (this.box.getTile()[i][j].getTileDisc() == null) {
+					
+					System.out.print(" ");
+				}else {
+					System.out.print(this.box.getTile()[i][j].getTileDisc().getChar());
+				}
+			}
+			System.out.println("|");
+		}
+		for (int i = 0; i < 15; i++) {
+			System.out.print("-");
+		}
+		System.out.println("\n 1 2 3 4 5 6 7");
+		
+		printTurnState(this.player1, this.player2);
+	}
+	
+	public void printTurnState(Player player1,Player player2) {
+		if (this.turn == 43) {
+			System.out.println("Game Over! Draw!");
+			
+		}else {
+			
+			if (this.turn %2 != 0) {
+				System.out.println(player1.getName() + " (Turn" + this.turn + ")"+"\n");
+			} else {
+				System.out.println(player2.getName() + " (Turn" + this.turn + ")"+"\n");
+			}
+		}
+		
+	}
+	
+	public void playerTurn(Scanner scanner) {
+		
+		if (this.turn %2 != 0) {
+			this.wrongColumn = player1.chooseColumn(scanner);
+			while (wrongColumn == 8) {
+				printFieldState();
+				scanner.nextLine();
+				this.wrongColumn = player1.chooseColumn(scanner);
+			}
+			this.box.update(this.player1);
+		}else {
+			this.wrongColumn = player2.chooseColumn(scanner);
+			while (wrongColumn == 8) {
+				printFieldState();
+				scanner.nextLine();
+				this.wrongColumn = player2.chooseColumn(scanner);
+			}
+			this.box.update(this.player2);
+		}
+		
+		this.turn++;
+	}
+	
+//	public void noFieldLeft() {
+//		endGame();
+//	}
+	
+	
+	
+	
+	//-----------------------------------------------------
+
+}

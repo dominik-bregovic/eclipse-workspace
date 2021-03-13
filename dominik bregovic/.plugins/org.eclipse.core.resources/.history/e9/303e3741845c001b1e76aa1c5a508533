@@ -1,0 +1,85 @@
+
+public class Box {
+	Game game;
+	private Tile[][] tiles = new Tile [6][7];
+	private boolean validField = true;
+	
+	public Box() {
+		
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 7; j++) {
+				this.tiles[i][j] = new Tile();
+			}
+		}
+	}
+	
+	
+	//have to do a check for chosen Tiles maybe a switchcase for the 6 rows?!
+	public void update(Player player) {
+			if (this.tiles[5][player.getColumn() - 1].getTileDisc() == null) {
+				this.tiles[5][player.getColumn() - 1].setTileDisc(player.getPlayerDisc());
+			}else if (this.tiles[4][player.getColumn() - 1].getTileDisc() == null) {
+				this.tiles[4][player.getColumn() - 1].setTileDisc(player.getPlayerDisc());
+			}else if (this.tiles[3][player.getColumn() - 1].getTileDisc() == null) {
+				this.tiles[3][player.getColumn() - 1].setTileDisc(player.getPlayerDisc());
+			}else if (this.tiles[2][player.getColumn() - 1].getTileDisc() == null) {
+				this.tiles[2][player.getColumn() - 1].setTileDisc(player.getPlayerDisc());
+			}else if (this.tiles[1][player.getColumn() - 1].getTileDisc() == null) {
+				this.tiles[1][player.getColumn() - 1].setTileDisc(player.getPlayerDisc());
+			}else if (this.tiles[0][player.getColumn() - 1].getTileDisc() == null) {
+				this.tiles[0][player.getColumn() - 1].setTileDisc(player.getPlayerDisc());
+			}else {
+				this.validField = false;
+			}
+	}
+	
+	public void checkMaxTurn(int turn) {
+		if (turn == 43) {
+			this.validField = false;
+		}
+	}
+	
+	public void checkDiagonalIfWinner(Player player1, Player player2) {
+//		//check diagonalen nach links
+//		for(int i = 0; i < 3; i++){
+//		    for(int j = 6; j > 2; j--){
+//		        if(tiles[i][j].getTileDisc() == player1.getPlayerDisc() && tiles[i+1][j-1].getTileDisc() == player1.getPlayerDisc()
+//		        		&& tiles[i+2][j-2].getTileDisc() == player1.getPlayerDisc() && tiles[i+3][j-3].getTileDisc() == player1.getPlayerDisc()) {
+//		            this.fieldEmpty=false;
+//		        }
+//		    }
+//		}
+		//check diagonalen nach rechts  currently not printing the last sign when you win
+//		for(int i = 0; i < 2; i--){
+//		    for(int j = 0; j > 3; j++){
+//		        if(tiles[i][j].getTileDisc() == player1.getPlayerDisc() && tiles[i+1][j-1].getTileDisc() == player1.getPlayerDisc()
+//		        		&& tiles[i+2][j-2].getTileDisc() == player1.getPlayerDisc() && tiles[i+3][j-3].getTileDisc() == player1.getPlayerDisc()) {
+//		            this.fieldEmpty=false;
+//		        }
+//		    }
+//		}
+	}
+//		for(int i=0;i<=2;i++) //Horizontale Gewinnbedingung
+//			for(int j=0;j<=6;j++)
+//			{if(tiles[i][j]==s && SpielFeld [i+1] [j]==s && SpielFeld [i+2] [j] ==s && SpielFeld [i+3] [j] ==s)
+//			{a=true;}
+//			}
+//
+//
+//			for(int i=0;i<=5;i++) //Vertikale Gewinnbedingung
+//			for(int j=0;j<=3;j++)
+//			{if(SpielFeld [j]==s && SpielFeld [j+1]==s && SpielFeld [j+2] ==s && SpielFeld [j+3] ==s)
+//			{a=true;}
+//			}
+//	}
+	
+	public boolean getFieldEmpty() {
+		return this.validField;
+	}
+	
+	
+	public Tile[][] getTile() {
+		return this.tiles;
+	}
+}
+         

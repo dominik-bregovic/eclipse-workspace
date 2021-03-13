@@ -1,0 +1,55 @@
+import java.util.*;
+public class Lotto {
+
+	public static void main(String[] args) {
+
+		Date date = new Date();
+		Random randomNum = new Random();
+		
+		String time = Long.toString(date.getTime());
+		List list = new ArrayList();
+		char [] numbers = time.toCharArray();
+		long sumOfDigits = 0;
+		
+		
+		System.out.println("Current time in ms: "+time);
+		System.out.print("Singel digits of current time: [");
+		for (int i = 0; i < numbers.length; i++) {
+			
+		} 
+		
+		for (int i = 0; i < numbers.length; i++) {
+			if (i==0) {
+				System.out.print(numbers[i]);
+			}else {
+				System.out.print(","+numbers[i]);
+			} 
+			String convert = Character.toString(numbers[i]);
+			sumOfDigits += Long.parseLong(convert);
+		}
+		
+		System.out.println("]");
+		System.out.println("Sum of all digits: "+sumOfDigits);
+		
+		// generating numbers for tipps and sorting them.
+		
+		//here is a prob
+		
+			
+		for (int j = 0; j < numbers.length; j++) {
+			
+			System.out.print("Tipp "+j+":");
+			for (int i = 1; i <= 6; i++) {
+				Integer r = randomNum.nextInt(45)+1;
+				list.add(r);
+			}
+			list.clear();
+			System.out.println(list);
+		}
+			
+			
+		
+		
+	}
+
+}

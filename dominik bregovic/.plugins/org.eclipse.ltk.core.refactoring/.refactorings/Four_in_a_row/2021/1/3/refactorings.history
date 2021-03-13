@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;fieldEmpty&apos; in &apos;Box&apos; to &apos;validField&apos;&#x0D;&#x0A;- Original project: &apos;Four_in_a_row&apos;&#x0D;&#x0A;- Original element: &apos;Box.fieldEmpty&apos;&#x0D;&#x0A;- Renamed element: &apos;Box.validField&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;fieldEmpty&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;{Box.java[Box^fieldEmpty" name="validField" references="true" setter="false" stamp="1611253023337" textual="false" version="1.0"/>
+</session>
