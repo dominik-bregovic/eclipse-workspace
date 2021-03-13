@@ -1,0 +1,72 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CalculatorSys {
+	
+	public static Double verifyNumber(String input, Scanner scanner) {
+		input = scanner.nextLine().trim();
+		Double numb = 0.0;
+		String validInput = "1234567890.";
+			
+		if (!validInput.contains("1234567890.")) {
+			System.out.println("11Error - arguments must be of the type NUMBER1 {'*','/','+','-'} NUMBER2");
+		}
+		try {
+			Double inputNumb = Double.valueOf(input);
+			System.out.println("finished");
+			return (inputNumb);
+		} catch (NumberFormatException e) {
+			verifyNumber(validInput, scanner);
+		}
+		return numb;
+	}
+	
+	public static String verifyOperator(String operator, Scanner scanner) {
+		String allowedInput = "/*-+";
+		operator = scanner.nextLine();
+		
+		while (!allowedInput.contains(operator) && operator.length() != 1) {
+			System.out.println("Error - arguments must be of the type NUMBER1 {'*','/','+','-'} NUMBER2");
+			operator = scanner.nextLine();
+		}
+		System.out.println("okay till here");
+		return operator;
+	}
+	
+	public static Double calculate(Double number1, Double number2, String operator) {
+//		Double number1 =Double.parseDouble(num1);
+//		Double number2 =Double.parseDouble(num2);
+		System.out.print(number1 + operator + number2 + " = ");
+		
+		if (operator.equals("+")) {
+			number1 += number2;
+			return number1;
+		}else if (operator.equals("-")) {
+			number1 -= number2;
+			return number1;
+		}else if (operator.equals("/")) {
+			number1 /= number2;
+			return number1;
+		}else {
+			number1 *= number2;
+			return number1;
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		String input = "0";
+		String operator = "0";
+		List<String> sign = new ArrayList<String>();
+		List<Double> numbers = new ArrayList<Double>();
+		
+		numbers.add(verifyNumber(input, scanner));
+		sign.add(verifyOperator(operator, scanner));
+		numbers.add(verifyNumber(input, scanner));
+		System.out.println(calculate(numbers.get(0), numbers.get(1), sign.get(0)));
+		
+	}
+
+}
