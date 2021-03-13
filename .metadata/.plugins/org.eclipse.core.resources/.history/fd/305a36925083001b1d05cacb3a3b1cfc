@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class CalculatorArg {
+	
+	
+	
+	public static String verifyOperator(String operator, Scanner scanner) {
+		String allowedInput = "/*-+";
+		operator = scanner.nextLine();
+		
+		while (!allowedInput.contains(operator) && operator.length() != 1 ) {
+			System.out.println("Error - arguments must be of the type NUMBER1 {'*','/','+','-'} NUMBER2");
+			operator = scanner.nextLine();
+		}
+		return operator;
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String operator = "0";
+		List<String> signs = new ArrayList<String>();
+
+		signs.add(verifyOperator(operator, scanner));
+
+	}
+
+}

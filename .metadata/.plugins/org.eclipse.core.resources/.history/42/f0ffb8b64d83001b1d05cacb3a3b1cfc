@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class CalculatorArg {
+	
+	public static String verifyNumber(String input, Double value, Scanner scanner) {
+		input = scanner.nextLine().trim();
+			
+		if (input.contains("1234567890.")) {
+			System.out.println("11Error - arguments must be of the type NUMBER1 {'*','/','+','-'} NUMBER2");
+		}
+//		System.out.println(input);
+		try {
+			value.parseDouble(input);
+		} catch (NumberFormatException e) {
+			verifyNumber(input, value, scanner);
+		}
+		return input.valueOf(value);
+	}
+	
+	public static String verifyOperator(String operator, Scanner scanner) {
+		String allowedInput = "/*-+";
+		operator = scanner.nextLine();
+		
+		while (!allowedInput.contains(operator)) {
+			System.out.println("Error - arguments must be of the type NUMBER1 {'*','/','+','-'} NUMBER2");
+			operator = scanner.nextLine();
+		}
+		return operator;
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String operator = "0";
+		String input = "0";
+		Double value = null;
+		List<String> signs = new ArrayList<String>();
+
+		signs.add(verifyNumber(input, value, scanner));
+		signs.add(verifyOperator(operator, scanner));
+		signs.add(verifyNumber(input, value, scanner));
+
+	}
+
+}

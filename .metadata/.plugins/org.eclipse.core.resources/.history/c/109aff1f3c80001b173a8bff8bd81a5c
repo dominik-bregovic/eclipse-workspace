@@ -1,0 +1,65 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class CalculatorArg {
+	
+	public static Double convert(String input, Double wert) {
+		return (wert.parseDouble(input));
+	}
+	
+	public static String verifyNumber(String input, Double value, Scanner scanner) {
+		String allowedInput = "123456789.";
+			input = scanner.nextLine().trim();
+			if (!allowedInput.contains(input)) {
+				System.out.println("111Error - arguments must be of the type NUMBER1 {'*','/','+','-'} NUMBER2");
+			}
+			System.out.println(input);
+			try {
+				value.parseDouble(input);
+			} catch (NumberFormatException e) {
+				verifyNumber(input, value, scanner);
+			}
+		return input.valueOf(value);
+	}
+	
+	public static String verifyOperator(String operator, Scanner scanner) {
+		operator = scanner.nextLine();
+		while (!operator.contains("/*-+")) {
+			System.out.println("Error - arguments must be of the type NUMBER1 {'*','/','+','-'} NUMBER2");
+			operator = scanner.nextLine();
+		}
+		return operator;
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String operator = "0";
+		String input = "0";
+		Double value = null;
+		List<String> signs = new ArrayList<String>();
+
+		signs.add(verifyNumber(input, value, scanner));
+		signs.add(verifyOperator(operator, scanner));
+		signs.add(verifyNumber(input, value, scanner));
+//		do {
+//			System.out.println("Error - arguments must be of the type NUMBER1 {'*','/','+','-'} NUMBER2");
+//			input = scanner.nextLine().trim();
+//			value.parseDouble(input);
+//		} while (!scanner.hasNextDouble());
+//		
+//		while (!operator.contains("/*-+")) {
+//			System.out.println("Error - arguments must be of the type NUMBER1 {'*','/','+','-'} NUMBER2");
+//			operator = scanner.next();
+//		}
+//		
+//		do {
+//			System.out.println("Error - arguments must be of the type NUMBER1 {'*','/','+','-'} NUMBER2");
+//			input = scanner.nextLine().trim();
+//			value.parseDouble(input);
+//		} while (!scanner.hasNextDouble());
+
+	}
+
+}
